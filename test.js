@@ -13,27 +13,27 @@ const fetchData = async (url) => {
 
 const getResults = async (url) => {
     const $ = await fetchData(url);
-    // $("td[headers='view-field-course-number-cs-table-column']").each((index, element) => {
-    //     tags.add($(element).text().replace(/\s/g,''));
-    // });
+    const table= $("table tbody tr")
+    //console.log(table.children().children())
+    let a=0;
     $("table tbody tr").each((index, element) => {
         const bodyTr= $(element).children("td");
         //console.log(bodyTr)
-        const dummy= [];
         Array.prototype.forEach.call(bodyTr, child => {
-            dummy.push($(child).text().replace(/\s/g,''));
+            console.log($(child).text().replace(/\s/g,''));
         });
-        console.log(dummy)
-        tags.add(dummy)
     });
-    const next= $(".pager__link.pager__link--next").attr('href');
-    console.log(tags.size)
-    if(next!=undefined){
-        await getResults("https://webapps.union.edu/course-schedules"+next);
-    }
-    return {
-        name:[...tags],
-    };
+    // $("td[headers='view-field-course-number-cs-table-column']").each((index, element) => {
+    //     tags.add($(element).text().replace(/\s/g,''));
+    // });
+    // const next= $(".pager__link.pager__link--next").attr('href');
+    // console.log(tags.size)
+    // if(next!=undefined){
+    //     await getResults("https://webapps.union.edu/course-schedules"+next);
+    // }
+    // return {
+    //     name:[...tags],
+    // };
 };
 
-module.exports = getResults;
+getResults(orisiteUrl)
