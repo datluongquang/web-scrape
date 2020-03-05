@@ -1,0 +1,26 @@
+{
+  "name": "web-scarpe",
+  "version": "1.0.0",
+  "description": "scrape web",
+  "main": "write.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "npm write.js",
+    "test": "npm write.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datluongquang/web-scrape.git"
+  },
+  "author": "Dat Luong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/datluongquang/web-scrape/issues"
+  },
+  "homepage": "https://github.com/datluongquang/web-scrape#readme"
+}
