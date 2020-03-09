@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Dit me may</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
+
+</head>
+
+<body>
+    <script type="text/javascript" src="script.js"></script>
+    <select id="edit-field-common-curriculum-cs-target-id">
+        <option value="All" selected="selected">- Any -</option>
+        <option value="HU HU">HU HU</option>
+        <option value="HU Humanities">HU Humanities</option>
+        <option value="HUL HUL">HUL HUL</option>
+        <option value="HUL Literature">HUL Literature</option>
+        <option value="HUM Arts & Humanities">HUM Arts &amp; Humanities</option>
+        <option value="HUM HUM">HUM HUM</option>
+        <option value="LCC LCC">LCC LCC</option>
+        <option value="LCC Languages & Cultures">LCC Languages &amp; Cultures</option>
+        <option value="LCCB Biblical Hebrew">LCCB Biblical Hebrew</option>
+        <option value="LCCB LCCB">LCCB LCCB</option>
+        <option value="LCCC Chinese">LCCC Chinese</option>
+        <option value="LCCC LCCC">LCCC LCCC</option>
+        <option value="LCCF French">LCCF French</option>
+        <option value="LCCF LCCF">LCCF LCCF</option>
+        <option value="LCCG German">LCCG German</option>
+        <option value="LCCG LCCG">LCCG LCCG</option>
+        <option value="LCCH Hebrew">LCCH Hebrew</option>
+        <option value="LCCH LCCH">LCCH LCCH</option>
+        <option value="LCCI Italian">LCCI Italian</option>
+        <option value="LCCI LCCI">LCCI LCCI</option>
+        <option value="LCCJ Japanese">LCCJ Japanese</option>
+        <option value="LCCJ LCCJ">LCCJ LCCJ</option>
+        <option value="LCCK Greek">LCCK Greek</option>
+        <option value="LCCL LCCL">LCCL LCCL</option>
+        <option value="LCCL Latin">LCCL Latin</option>
+        <option value="LCCR LCCR">LCCR LCCR</option>
+        <option value="LCCR Russian">LCCR Russian</option>
+        <option value="LCCS LCCS">LCCS LCCS</option>
+        <option value="LCCS Spanish">LCCS Spanish</option>
+        <option value="QMR QMR">QMR QMR</option>
+        <option value="QMR Quant & Math Reasoning">QMR Quant &amp; Math Reasoning</option>
+        <option value="SCLB SCLB">SCLB SCLB</option>
+        <option value="SCLB Science w/Lab">SCLB Science w/Lab</option>
+        <option value="SET SET">SET SET</option>
+        <option value="SET Science Engineering Tech">SET Science Engineering Tech</option>
+        <option value="SOCS SOCS">SOCS SOCS</option>
+        <option value="SOCS Social Science">SOCS Social Science</option>
+        <option value="WAC WAC">WAC WAC</option>
+        <option value="WAC Writing Across Curriculum">WAC Writing Across Curriculum</option>
+        <option value="WAC/S WAC or Sen Writing">WAC/S WAC or Sen Writing</option>
+        <option value="WAC/S WAC/S">WAC/S WAC/S</option>
+        <option value="WS Senior Writing">WS Senior Writing</option>
+        <option value="WS WS">WS WS</option>
+    </select>
+    <select id="edit-field-id-programs-cs-target-id">
+        <option value="All" selected="selected">- Any -</option>
+        <option value="Africana Studies">Africana Studies</option>
+        <option value="American Studies">American Studies</option>
+        <option value="Asian Studies">Asian Studies</option>
+        <option value="Biochemistry">Biochemistry</option>
+        <option value="Biomedical Engineering">Biomedical Engineering</option>
+        <option value="Electrical Engineering">Electrical Engineering</option>
+        <option value="Environmental Science & Policy">Environmental Science &amp; Policy</option>
+        <option value="Film Studies">Film Studies</option>
+        <option value="Gender/Sexuality/Women's St">Gender/Sexuality/Women's St</option>
+        <option value="Latin American Studies">Latin American Studies</option>
+        <option value="Mechanical Engineering">Mechanical Engineering</option>
+        <option value="Religious Studies">Religious Studies</option>
+        <option value="Russian & E European Studies">Russian &amp; E European Studies</option>
+        <option value="Science, Medicine & Tech in Cu">Science, Medicine &amp; Tech in Cu</option>
+    </select>
+    <button type="button" class="btn btn-primary" onclick="load()">Filter</button>
+    <div class="container">
+        <table id="subject" class="table table-striped">
+            <thead>
+                <tr>
+                    <th><a>Course #</a></th>
+                    <th><a>Title</a></th>
+                    <th><a>Term</a></th>
+                    <th>Location &amp; Meeting Time 1</th>
+                    <th>Location &amp; Meeting Time 2</th>
+                    <th>Location &amp; Meeting Time 3</th>
+                    <th>Instructor</th>
+                    <th>Common Curriculum</th>
+                    <th>Interdisciplinary Programs</th>
+                    <th>Departments</th>
+                    <th><a>Petition</a></th>
+                    <th><a>Credits</a></th>
+                    <th><a>Total Students</a></th>
+                    <th><a>Capacity</a></th>
+                    <th>Register</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</body>
+
+</html>
